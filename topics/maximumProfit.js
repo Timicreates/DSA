@@ -12,7 +12,3 @@ const maxProfit = (prices) => {
   }
   return maxProfit;
 };
-
-const prices = [7, 1, 4, 5, 3, 9, 2, 6];
-const profit = maxProfit(prices);
-console.log("Max Profit =", profit);
