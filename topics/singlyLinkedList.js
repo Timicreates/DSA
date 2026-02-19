@@ -21,6 +21,8 @@ class linkedList {
     this.tail.next = newNode;
     this.tail = newNode;
     this.length++;
+
+    return this;
   }
   pop() {
     let temp = this.head;
@@ -139,6 +141,20 @@ class linkedList {
   null() {
     this.head = null;
   }
+  reverse() {
+    let temp = this.head;
+    this.head = this.tail;
+    this.tail = temp;
+    let next = temp;
+    let prev = null;
+
+    for (let i = 0; i < this.length; i++) {
+      next = temp.next;
+      temp.next = prev;
+      prev = temp;
+      temp = next;
+    }
+  }
 }
 const myLinkedList = new linkedList(1);
 myLinkedList.push(10);
@@ -146,4 +162,6 @@ myLinkedList.push(13);
 myLinkedList.push(19);
 // myLinkedList.unShift(2);
 
-console.log(myLinkedList.size());
+myLinkedList.reverse();
+
+console.log(myLinkedList);
