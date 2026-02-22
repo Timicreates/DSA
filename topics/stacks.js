@@ -34,10 +34,28 @@ class Stack {
 
     return last;
   }
+  min() {
+    if (this.length === 0) {
+      return undefined;
+    }
+
+    let current = this.first;
+    let min = current.value;
+
+    while (current.next) {
+      current = current.next;
+      if (current.value < min) {
+        console.log(current.value, min);
+
+        min = current.value;
+      }
+    }
+    return min;
+  }
 }
 
 let theStack = new Stack(0);
 theStack.push(1);
 theStack.push(2);
-theStack.pop();
-console.log(theStack);
+
+console.log(theStack.min());
